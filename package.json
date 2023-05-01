@@ -1,0 +1,12 @@
+{
+  "name": "tdd-app",
+  "version": "1.0.0",
+  "description": "Learn Test Driven Development (TDD) in JavaScript",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
