@@ -1,5 +1,5 @@
 {
-  "name": "tdd-app",
+  "name": "tdd-prac",
   "version": "1.0.0",
   "description": "Learn Test Driven Development (TDD) in JavaScript",
   "main": "server.js",
@@ -8,5 +8,12 @@
     "start": "node server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jest": "^29.5.0",
+    "mongoose": "^7.1.0",
+    "node-mocks-http": "^1.12.2",
+    "supertest": "^6.3.3"
+  }
 }

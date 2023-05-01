@@ -4,7 +4,14 @@ const PORT = 5000;
 
 const app = express();
 const productRoutes = require('./routes');
+const mongoose = require('mongoose');
 
+
+mongoose.connect('mongodb+srv://soogineer:qwer1234@cluster0.kxtder7.mongodb.net/test',
+  {
+    useNewUrlParser: true
+  }).then(()=> console.log('MongoDB Connected..'))
+  .catch(err => console.log(err))
 
 app.use("/api/products", productRoutes)
 app.get('/', (req, res) => {
