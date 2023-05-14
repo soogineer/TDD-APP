@@ -5,7 +5,6 @@ const newProduct = require('../data/new-product.json');
 
 productModel.create = jest.fn();
 
-
 let req, res, next
 beforeEach(()=>{
     req = httpMocks.createRequest();
