@@ -23,7 +23,6 @@ describe("Product Controller Create", () => {
 
   it("should call ProductModel.create", () => {
     
-    
     productController.createProduct(req, res, next);
     expect(productModel.create).toBeCalledWith(newProduct);
   })
