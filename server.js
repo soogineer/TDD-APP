@@ -9,7 +9,8 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb+srv://soogineer:qwer1234@cluster0.kxtder7.mongodb.net/test',
   {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
   }).then(()=> console.log('MongoDB Connected..'))
   .catch(err => console.log(err))
 
@@ -20,3 +21,5 @@ app.get('/', (req, res) => {
 
 app.listen(PORT);
 console.log(`Running on port ${PORT}`)
+
+module.exports = app;
