@@ -92,3 +92,9 @@ describe("Product Controller GetById", () => {
     expect(res._isEndCalled()).toBeTruthy();
   })
 })
+
+describe("Product Controller Update", () => {
+  it("should have an updateProduct function", () => {
+    expect(typeof productController.updateProduct).toBe("function")
+  })
+})
