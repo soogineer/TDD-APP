@@ -1,3 +1,4 @@
+const Product = require("../models/Product");
 const productModel = require("../models/Product");
 
 exports.createProduct = async (req, res, next) => {
@@ -32,4 +33,9 @@ exports.getProductById = async (req, res, next) => {
     }
 }
 
-exports.updateProduct = async (req, res, next) => {};
+exports.updateProduct = async (req, res, next) => {
+  await Product.findByIdAndUpdate(
+    req.params.productId,
+    req.body,
+    {new: true});
+};
