@@ -8,6 +8,7 @@ productModel.create = jest.fn();
 productModel.find = jest.fn();
 productModel.findById = jest.fn();
 productModel.findByIdAndUpdate = jest.fn();
+productModel.findByIdAndDelete = jest.fn();
 
 const productId = "5dlkjdalkjfdkhfkhfalkdf";
 const updatedProduct = {name: "updated name", describtion: "updated description"};
@@ -136,5 +137,18 @@ describe("Product Controller Update", () => {
 describe("Product Controller Delete",() => {
   it("should have a deleteProduct function", () => {
     expect(typeof productController.deleteProduct).toBe("function");
+  });
+  it("should call ProductModel.findByIdAndDelete", async() => {
+    req.params.productId = productId;
+    await productController.deleteProduct(req, res, next);
+    expect(productModel.findByIdAndDelete).toBeCalledWith(productId);
+  })
+
+  it("should return 200 response", async() => {
+    productModel.findByIdAndDelete.mockReturnValue(newProduct);
+    await productController.deleteProduct(req, res, next);
+    expect(res.statusCode).toBe(200);
+    expect(res._getJSONData()).toStrictEqual(newProduct);
+    expect(res._isEndCalled()).toBeTruthy();
   });
 });
