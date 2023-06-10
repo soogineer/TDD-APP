@@ -52,5 +52,10 @@ exports.updateProduct = async (req, res, next) => {
 
 exports.deleteProduct = async(req, res, next) => {
   const deletedProduct = await Product.findByIdAndDelete(req.params.productId);
-  res.status(200).json(deletedProduct);
+  if(deletedProduct) {
+    res.status(200).json(deletedProduct);
+  } else {
+    res.status(404).send();
+  }
+  
 };
